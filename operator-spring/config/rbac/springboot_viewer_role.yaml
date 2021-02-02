@@ -1,0 +1,20 @@
+# permissions for end users to view springbeet.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: springboot-viewer-role
+rules:
+- apiGroups:
+  - springboot.my.domain
+  resources:
+  - springbeet
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - springboot.my.domain
+  resources:
+  - springbeet/status
+  verbs:
+  - get

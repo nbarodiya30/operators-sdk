@@ -1,0 +1,24 @@
+---
+# tasks file for Springboot
+---
+- name: springboot app
+  community.kubernetes.k8s:
+    definition:
+      kind: Deployment
+      apiVersion: apps/v1
+      metadata:
+        name: springboot
+        namespace: '{{ ansible_operator_meta.namespace }}'
+      spec:
+        replicas: "{{size}}"
+        selector:
+          matchLabels:
+            app: springboot
+        template:
+          metadata:
+            labels:
+              app: springboot
+          spec:
+            containers:
+            - name: springboot
+              image: "010193/spring-mongo-service:1.0"

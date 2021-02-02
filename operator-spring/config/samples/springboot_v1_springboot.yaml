@@ -1,0 +1,6 @@
+apiVersion: springboot.my.domain/v1
+kind: Springboot
+metadata:
+  name: springboot-sample
+spec:
+  foo: bar

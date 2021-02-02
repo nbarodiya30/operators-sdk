@@ -1,0 +1,24 @@
+# permissions for end users to edit springbeet.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: springboot-editor-role
+rules:
+- apiGroups:
+  - springboot.my.domain
+  resources:
+  - springbeet
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - springboot.my.domain
+  resources:
+  - springbeet/status
+  verbs:
+  - get
